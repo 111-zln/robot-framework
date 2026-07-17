@@ -9,8 +9,8 @@ class JointController
     public:
 
         JointController(std::size_t joint_id,
-                        RobotState& state,
-                        HardwareInterface& hardware);
+                RobotState& state,
+                RobotCommand& command);
 
         void setTargetPosition(double position);
 
@@ -34,7 +34,7 @@ class JointController
 
         RobotState& robot_state_;
 
-        HardwareInterface& hardware_;
+        RobotCommand& robot_command_;
 
         PID pid_;
 

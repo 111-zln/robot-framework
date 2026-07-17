@@ -1,15 +1,16 @@
 #include "JointController.hpp"
 #include "Pid.hpp"
 #include "RobotState.hpp"
-JointController::JointController(std::size_t joint_id,
-                        RobotState& state,
-                        HardwareInterface& hardware)
 
-                :joint_id_(joint_id),
-                robot_state_(state),
-                hardware_(hardware)
+JointController::JointController(
+    std::size_t joint_id,
+    RobotState& state,
+    RobotCommand& command)
+
+    : joint_id_(joint_id),
+      robot_state_(state),
+      robot_command_(command)
 {
-
 }
 
 
@@ -40,11 +41,11 @@ void JointController::update(double dt)
 
     double output =
         pid_.update(
-            target_position_,
-            current,
-            dt);
+        target_position_,
+        current,
+        dt);
 
-    hardware_.writeJointCommand(
+    robot_command_.setJointPositionCommand(
         joint_id_,
         output);
 }
