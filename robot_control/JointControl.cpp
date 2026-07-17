@@ -1,8 +1,8 @@
-#include "JointController.hpp"
+#include "JointControl.hpp"
 #include "Pid.hpp"
 #include "RobotState.hpp"
 
-JointController::JointController(
+JointControl::JointControl(
     std::size_t joint_id,
     RobotState& state,
     RobotCommand& command)
@@ -14,46 +14,41 @@ JointController::JointController(
 }
 
 
-void JointController::setTargetPosition(double position)
+void JointControl::setTargetPosition(double position)
 {
     target_position_ = position;
 }
 
-double JointController::getTargetPosition() const
+double JointControl::getTargetPosition() const
 {
     return target_position_;
 }
 
-void JointController::setTargetVelocity(double velocity)
+void JointControl::setTargetVelocity(double velocity)
 {
     target_velocity_ = velocity;
 }
 
-double JointController::getTargetVelocity() const
+double JointControl::getTargetVelocity() const
 {
     return target_velocity_;
 }
 
-void JointController::update(double dt)
+void JointControl::update(double dt)
 {
-    double current =
-        robot_state_.getJointPosition(joint_id_);
+    robot_command_.setJointPositionCommand(
+        joint_id_,
+        target_position_);
 
-    double output =
-        pid_.update(
-        target_position_,
-        current,
-        dt);
+}
+
+void JointControl::stop()
+{
+    target_position_ =
+        robot_state_.getJointPosition(joint_id_);
 
     robot_command_.setJointPositionCommand(
         joint_id_,
-        output);
-}
-
-void JointController::stop()
-{
-    target_velocity_ = 0.0;
-
-    pid_.reset();
+        target_position_);
 }
 
