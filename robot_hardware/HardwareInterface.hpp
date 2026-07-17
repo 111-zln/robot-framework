@@ -1,5 +1,7 @@
 #pragma once
-#include "robot_control/robotstate.hpp"
+
+#include "RobotState.hpp"
+#include "RobotCommand.hpp"
 
 class HardwareInterface
 {
@@ -9,7 +11,7 @@ class HardwareInterface
 
         virtual bool connect() = 0;
 
-        virtual void disconnect() = 0;
+        virtual bool disconnect() = 0;
 
         virtual bool enable() = 0;
 
@@ -17,5 +19,5 @@ class HardwareInterface
 
         virtual bool read(RobotState& state) = 0;
 
-        virtual bool write(const RobotState& state) = 0;
+        virtual bool write(const RobotCommand& command) = 0;
 };

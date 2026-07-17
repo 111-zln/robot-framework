@@ -4,8 +4,8 @@
 #include "robot_control/RobotState.hpp"
 #include "robot_control/PID.hpp"
 
-    class JointController
-    {
+class JointController
+{
     public:
 
         JointController(std::size_t joint_id,
