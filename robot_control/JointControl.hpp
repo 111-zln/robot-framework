@@ -2,7 +2,7 @@
 
 #include "robot_hardware/HardwareInterface.hpp"
 #include "robot_control/RobotState.hpp"
-#include "robot_control/PID.hpp"
+#include "robot_control/Pid.hpp"
 
 class JointControl
 {
