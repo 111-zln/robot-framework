@@ -13,6 +13,10 @@ void PID::setGain(double kp,
 
 double PID::update(double target,double current,double dt)
 {
+    if(dt<= 0.0)
+    {
+        return 0.0;
+    }
     double error = target - current; //误差
 
     integral_ += error * dt;         //积分

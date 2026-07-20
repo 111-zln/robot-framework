@@ -1,15 +1,19 @@
 #pragma once
 
+#include <vector>
+
 #include "RobotState.hpp"
+#include "RobotCommand.hpp"
 #include "JointController.hpp"
 #include "robot_hardware/HardwareInterface.hpp"
-#include <vector>
 
 class RobotController
 {
     public:
 
-        explicit RobotController(HardwareInterface& hardware, std::size_t joint_count);
+        explicit RobotController(
+            HardwareInterface& hardware,
+            std::size_t joint_count);
 
         bool initialize();
 
@@ -21,11 +25,15 @@ class RobotController
 
         RobotState& state();
 
+        RobotCommand& command();
+
     private:
 
-        std::size_t joint_count_;
+        bool running_{false};
 
         RobotState robot_state_;
+
+        RobotCommand robot_command_;
 
         HardwareInterface& hardware_;
 

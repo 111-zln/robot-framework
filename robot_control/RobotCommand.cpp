@@ -44,3 +44,22 @@ std::size_t RobotCommand::jointCount() const
 {
     return joint_position_command_.size();
 }
+
+//清除指令
+void RobotCommand::clear()
+{
+    std::fill(
+        joint_position_command_.begin(),
+        joint_position_command_.end(),
+        0.0);
+
+    std::fill(
+        joint_velocity_command_.begin(),
+        joint_velocity_command_.end(),
+        0.0);
+
+    std::fill(
+        joint_torque_command_.begin(),
+        joint_torque_command_.end(),
+        0.0);
+}

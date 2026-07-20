@@ -18,7 +18,9 @@ class RobotCommand
         void setJointTorqueCommand(std::size_t index, double torque);
         double getJointTorqueCommand(std::size_t index) const;
 
-    std::size_t jointCount() const;
+        std::size_t jointCount() const;
+
+        void clear();
 
     private:
 

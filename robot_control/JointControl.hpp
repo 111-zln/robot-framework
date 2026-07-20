@@ -4,11 +4,11 @@
 #include "robot_control/RobotState.hpp"
 #include "robot_control/Pid.hpp"
 
-class JointControl
+class JointController
 {
     public:
 
-        JointControl(std::size_t joint_id,
+        JointController(std::size_t joint_id,
                 RobotState& state,
                 RobotCommand& command);
 
@@ -36,7 +36,7 @@ class JointControl
 
         RobotCommand& robot_command_;
 
-        ControlMode control_mode_{ControlMode::Position};
+        ControlMode control_mode_{ControlMode::Position}; //以后用
 
-        std::size_t jointId() const;
+        PID pid_;
 };
