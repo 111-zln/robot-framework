@@ -1,4 +1,4 @@
-#include "JointControl.hpp"
+#include "JointController.hpp"
 #include "Pid.hpp"
 #include "RobotState.hpp"
 
