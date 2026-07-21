@@ -15,7 +15,7 @@ bool MockHardware::connect()
     return true;
 }
 
-void MockHardware::disconnect()
+bool MockHardware::disconnect()
 {
     connected_ = false;
 

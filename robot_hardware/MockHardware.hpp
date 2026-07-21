@@ -12,7 +12,7 @@ public:
 
     bool connect() override;
 
-    void disconnect() override;
+    bool disconnect() override;
 
     bool enable() override;
 
@@ -31,6 +31,5 @@ private:
     std::vector<double> joint_velocity_;
     std::vector<double> joint_effort_;
     
-    const std::size_t joint_count_;
 };
 
