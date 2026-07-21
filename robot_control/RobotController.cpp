@@ -49,3 +49,24 @@ void RobotController::update(double dt)
       return;
    }
 }
+
+
+void RobotController::setJointTargetPosition(std::size_t joint,double position)
+{
+   if (joint >= joint_controllers_.size())
+   {
+      return;
+   }
+
+   joint_controllers_[joint].setTargetPosition(position);
+}
+
+void RobotController::setJointTargetVelocity(std::size_t joint,double velocity)
+{
+     if (joint >= joint_controllers_.size())
+   {
+      return;
+   }
+
+   joint_controllers_[joint].setTargetVelocity(velocity);
+}

@@ -23,6 +23,10 @@ class RobotController
 
         void update(double dt);
 
+        void setJointTargetPosition(std::size_t joint,double position);
+
+        void setJointTargetVelocity(std::size_t joint,double velocity);
+
         RobotState& state();
 
         RobotCommand& command();
