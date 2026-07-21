@@ -40,3 +40,41 @@ bool MockHardware::disable()
 
     return true;
 }
+
+bool MockHardware::read(RobotState& state)
+{
+   if (!enabled_)
+    {
+        return false;
+    }
+
+    for (std::size_t i = 0; i < joint_position_.size(); ++i)
+    {
+        state.setJointPosition(i, joint_position_[i]);
+        state.setJointVelocity(i, joint_velocity_[i]);
+    }
+
+    return true;
+}
+
+bool MockHardware::write(const RobotCommand& command)
+{
+    if (!enabled_)
+    {
+        return false;
+    }
+
+    for (std::size_t i = 0; i < joint_position_.size(); ++i)
+    {
+        joint_position_[i] =
+            command.getJointPositionCommand(i);
+
+        joint_velocity_[i] =
+            command.getJointVelocityCommand(i);
+
+        joint_effort_[i] =
+            command.getJointTorqueCommand(i);
+    }
+
+    return true;
+}

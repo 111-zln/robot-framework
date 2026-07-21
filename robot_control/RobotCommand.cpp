@@ -22,7 +22,6 @@ void RobotCommand::setJointVelocityCommand(std::size_t index,double velocity)
 {
     joint_velocity_command_[index] = velocity;
 }
-
 double RobotCommand::getJointVelocityCommand(std::size_t index) const
 {
     return joint_velocity_command_[index];
@@ -33,7 +32,6 @@ void RobotCommand::setJointTorqueCommand(std::size_t index, double torque)
 {
     joint_torque_command_[index] = torque;
 }
-
 double RobotCommand::getJointTorqueCommand(std::size_t index) const
 {
     return joint_torque_command_[index];
