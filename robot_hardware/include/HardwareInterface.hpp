@@ -1,7 +1,7 @@
 #pragma once
 
-#include "robot_control/RobotState.hpp"
-#include "robot_control/RobotCommand.hpp"
+#include "RobotState.hpp"
+#include "RobotCommand.hpp"
 
 class HardwareInterface
 {

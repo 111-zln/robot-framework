@@ -1,11 +1,11 @@
-#include "robot_control/RobotState.hpp"
-#include "robot_control/RobotCommand.hpp"
-#include "robot_control/RobotController.hpp"
-#include "robot_control/JointController.hpp"
-#include "robot_control/Pid.hpp"
+#include "RobotState.hpp"
+#include "RobotCommand.hpp"
+#include "RobotController.hpp"
+#include "JointController.hpp"
+#include "Pid.hpp"
 
-#include "robot_hardware/HardwareInterface.hpp"
-#include "robot_hardware/MockHardware.hpp"
+#include "HardwareInterface.hpp"
+#include "MockHardware.hpp"
 
 #include <chrono>
 #include <iostream>
@@ -53,6 +53,6 @@ int main()
     }
 
     robot.stop();
-    
+
     return 0;
 }

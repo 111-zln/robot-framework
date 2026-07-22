@@ -1,8 +1,8 @@
 #pragma once
 
-#include "robot_hardware/HardwareInterface.hpp"
-#include "robot_control/RobotState.hpp"
-#include "robot_control/Pid.hpp"
+#include "HardwareInterface.hpp"
+#include "RobotState.hpp"
+#include "Pid.hpp"
 
 class JointController
 {

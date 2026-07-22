@@ -5,7 +5,7 @@
 #include "RobotState.hpp"
 #include "RobotCommand.hpp"
 #include "JointController.hpp"
-#include "robot_hardware/HardwareInterface.hpp"
+#include "HardwareInterface.hpp"
 
 class RobotController
 {
