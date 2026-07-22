@@ -20,7 +20,7 @@ public:
 
     bool read(RobotState& state) override;
 
-    bool write(const RobotCommand& command) override;
+    bool write(const RobotCommand& command,double dt) override;
 
 private:
 

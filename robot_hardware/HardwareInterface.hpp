@@ -19,5 +19,5 @@ class HardwareInterface
 
         virtual bool read(RobotState& state) = 0;
 
-        virtual bool write(const RobotCommand& command) = 0;
+        virtual bool write(const RobotCommand& command , double dt) = 0;
 };

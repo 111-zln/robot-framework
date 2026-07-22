@@ -11,12 +11,15 @@ void PID::setGain(double kp,
     kd_ = kd;
 }
 
+
+//输入目标（速度/位姿..),输出...
 double PID::update(double target,double current,double dt)
 {
     if(dt<= 0.0)
     {
         return 0.0;
     }
+
     double error = target - current; //误差
 
     integral_ += error * dt;         //积分

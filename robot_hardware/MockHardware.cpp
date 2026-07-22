@@ -57,7 +57,7 @@ bool MockHardware::read(RobotState& state)
     return true;
 }
 
-bool MockHardware::write(const RobotCommand& command)
+bool MockHardware::write(const RobotCommand& command, double dt)
 {
     if (!enabled_)
     {
@@ -66,14 +66,11 @@ bool MockHardware::write(const RobotCommand& command)
 
     for (std::size_t i = 0; i < joint_position_.size(); ++i)
     {
-        joint_position_[i] =
-            command.getJointPositionCommand(i);
+        double velocity = command.getJointVelocityCommand(i);
 
-        joint_velocity_[i] =
-            command.getJointVelocityCommand(i);
+        joint_velocity_[i] = velocity;
 
-        joint_effort_[i] =
-            command.getJointTorqueCommand(i);
+        joint_position_[i] +=velocity * dt;
     }
 
     return true;

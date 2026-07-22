@@ -24,6 +24,10 @@ class JointController
 
         void stop();
 
+        void setControlMode(ControlMode mode);
+
+        ControlMode getControlMode() const;
+
     private:
 
         std::size_t joint_id_;
