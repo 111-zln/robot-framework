@@ -44,7 +44,7 @@ void RobotController::update(double dt)
       controller.update(dt);
    }
 
-   if (!hardware_.write(robot_command_))
+   if (!hardware_.write(robot_command_, dt))
    {
       return;
    }

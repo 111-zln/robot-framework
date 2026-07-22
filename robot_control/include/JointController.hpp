@@ -30,7 +30,7 @@ class JointController
 
     private:
 
-        std::size_t joint_id_;
+        std::size_t joint_id_  ;
 
         double target_position_{0.0};
 

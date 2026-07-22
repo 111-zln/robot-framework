@@ -27,9 +27,9 @@ class RobotController
 
         void setJointTargetVelocity(std::size_t joint,double velocity);
 
-        RobotState& state();
+        const RobotState& state() const;
 
-        RobotCommand& command();
+        const RobotCommand& command() const;
 
     private:
 
