@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "robot_common/RobotType.hpp"
+#include "robot_common/RobotMode.hpp"
 
 class RobotState
 {
