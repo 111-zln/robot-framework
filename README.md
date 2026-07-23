@@ -47,6 +47,8 @@ robot-control-framework/
 
 ├── robot_interfaces/      ROS2 custom interfaces
 
+├── robot_common/          robot common tool
+
 ├── robot_simulation/      Simulation modules
 
 ├── scripts/               Helper scripts

@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <vector>
 
-#include "robot_interfaces/RobotType.hpp"
+#include "robot_common/RobotType.hpp"
 
 class RobotState
 {
