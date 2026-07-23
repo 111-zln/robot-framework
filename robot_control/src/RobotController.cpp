@@ -10,6 +10,8 @@ RobotController::RobotController(
 {
 }
 
+
+//初始化
 bool RobotController::initialize()
 {
    if( !hardware_.connect())
@@ -27,11 +29,13 @@ bool RobotController::initialize()
     joint_controllers_.emplace_back(i,robot_state_,robot_command_);
    }
 
+   mode_ = RobotMode::Initialized;
+
    return true ;
     
 }
 
-
+//更新
 void RobotController::update(double dt)
 {
    if(!hardware_.read(robot_state_))
@@ -48,6 +52,19 @@ void RobotController::update(double dt)
    {
       return;
    }
+   
+}
+
+//启动
+void RobotController :: start()
+{
+   mode_ = RobotMode::Running;
+}
+
+//停止
+void RobotController::stop()
+{
+    mode_ = RobotMode::Stopped;
 }
 
 

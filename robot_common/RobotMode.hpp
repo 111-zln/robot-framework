@@ -2,7 +2,6 @@
 
 enum class RobotMode
 {
-    Idle,
 
     Created,
 

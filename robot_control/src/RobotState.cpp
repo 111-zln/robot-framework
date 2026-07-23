@@ -37,17 +37,6 @@ double RobotState::getJointEffort(std::size_t index) const
     return joint_effort_[index];
 }
 
-//机器模式
-void RobotState::setRobotMode(RobotMode mode)
-{
-    mode_ = mode;
-}
-RobotMode RobotState::getRobotMode() const
-{
-    return mode_;
-}
-
-
 std::size_t RobotState::jointCount() const
 {
     return joint_position_.size();

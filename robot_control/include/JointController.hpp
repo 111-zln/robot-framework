@@ -43,4 +43,6 @@ class JointController
         ControlMode control_mode_{ControlMode::Position}; //以后用
 
         PID pid_;
+
+        
 };

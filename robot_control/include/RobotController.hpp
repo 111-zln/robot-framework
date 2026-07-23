@@ -6,6 +6,7 @@
 #include "RobotCommand.hpp"
 #include "JointController.hpp"
 #include "HardwareInterface.hpp"
+#include "robot_common/RobotMode.hpp"
 
 class RobotController
 {
@@ -44,4 +45,6 @@ class RobotController
         std::vector<JointController> joint_controllers_;
 
         double control_period_{0.001};
+
+        RobotMode mode_{RobotMode::Created};
 };

@@ -22,10 +22,6 @@ class RobotState
         void setJointEffort(std::size_t index,double effort);
         double getJointEffort(std::size_t index) const;
 
-        void setRobotMode(RobotMode mode);
-
-        RobotMode getRobotMode() const;
-
         std::size_t jointCount() const;
 
     private:
@@ -36,5 +32,5 @@ class RobotState
 
         std::vector<double>  joint_effort_;
 
-        RobotMode mode_{RobotMode::Idle};
+
 };
