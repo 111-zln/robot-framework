@@ -20,7 +20,7 @@ class RobotController
 
         bool start();
 
-        void stop();
+        bool stop();
 
         void update(double dt);
 

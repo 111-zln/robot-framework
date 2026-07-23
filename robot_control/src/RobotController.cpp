@@ -14,6 +14,11 @@ RobotController::RobotController(
 //初始化
 bool RobotController::initialize()
 {
+   if(mode_ != RobotMode::Created)
+   {
+    return false;
+   }
+
    if( !hardware_.connect())
    {
     return false ; 
@@ -76,9 +81,18 @@ bool RobotController::start()
 }
 
 //停止
-void RobotController::stop()
+bool RobotController::stop()
 {
-    mode_ = RobotMode::Stopped;
+  
+   if(mode_ != RobotMode::Running)
+   {
+        return false;
+   }
+
+   mode_ = RobotMode::Stopped;
+
+   return true;
+
 }
 
 //只读模式
