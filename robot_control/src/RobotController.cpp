@@ -67,6 +67,12 @@ void RobotController::stop()
     mode_ = RobotMode::Stopped;
 }
 
+//只读模式
+RobotMode RobotController::mode() const
+{
+    return mode_;
+}
+
 
 void RobotController::setJointTargetPosition(std::size_t joint,double position)
 {
@@ -77,6 +83,7 @@ void RobotController::setJointTargetPosition(std::size_t joint,double position)
 
    joint_controllers_[joint].setTargetPosition(position);
 }
+
 
 void RobotController::setJointTargetVelocity(std::size_t joint,double velocity)
 {

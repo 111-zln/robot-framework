@@ -32,6 +32,8 @@ class RobotController
 
         const RobotCommand& command() const;
 
+        RobotMode mode() const;
+
     private:
 
         bool running_{false};
