@@ -18,7 +18,7 @@ class RobotController
 
         bool initialize();
 
-        void start();
+        bool start();
 
         void stop();
 

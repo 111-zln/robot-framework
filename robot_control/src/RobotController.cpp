@@ -38,8 +38,14 @@ bool RobotController::initialize()
 //更新
 void RobotController::update(double dt)
 {
+   if(mode_ != RobotMode::Running)
+   {
+    return;
+   }
+
    if(!hardware_.read(robot_state_))
    {
+      mode_ = RobotMode::Error;
       return;
    }
 
@@ -50,15 +56,23 @@ void RobotController::update(double dt)
 
    if (!hardware_.write(robot_command_, dt))
    {
+      mode_ = RobotMode::Error;
       return;
    }
    
 }
 
 //启动
-void RobotController :: start()
+bool RobotController::start()
 {
-   mode_ = RobotMode::Running;
+    if (mode_ != RobotMode::Initialized)
+    {
+        return false;
+    }
+
+    mode_ = RobotMode::Running;
+
+    return true;
 }
 
 //停止
